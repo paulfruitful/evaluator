@@ -10,11 +10,7 @@ export const metadata = {
   description: "Rate your instructors,teachers, staffs and get recommendations",
 };
 import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
+  ClerkProvider
 } from '@clerk/nextjs'
 import './globals.css'
 export default function RootLayout({

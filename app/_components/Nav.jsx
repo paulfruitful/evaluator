@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import {
@@ -8,8 +9,9 @@ import {
     UserButton,
     SignUpButton
   } from '@clerk/nextjs'
-  
+import { usePathname } from 'next/navigation';
 const Nav = ({ josefin, mulish }) => {
+  const path=usePathname()
   return (
     <div className="flex w-full justify-between bg-transparent">
       <div className="flex items-center p-6">
@@ -50,6 +52,12 @@ const Nav = ({ josefin, mulish }) => {
       </SignedOut> 
         
         <SignedIn>
+        {!path.includes('/dashboard')??<a
+          href="#"
+          className={`bg-transparent rounded-lg ${mulish.className} p-2 lg:p-3 text-sm lg:text-lg font-semibold border-2 border-white border-solid flex shadow-lg text-white`}
+        >
+        Dashboard
+      </a>}
             <UserButton />
        </SignedIn>
       </div>

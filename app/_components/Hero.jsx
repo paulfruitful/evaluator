@@ -1,6 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { Mulish } from 'next/font/google';
+import {
+  SignInButton,
+  SignedIn,
+  SignUp,
+  SignedOut,
+  UserButton,
+  SignUpButton
+} from '@clerk/nextjs'
 
+const mulish=Mulish({subsets:['latin'],weight:['200','300','600']})
 const Hero = () => {
   const mountRef = useRef(null);
 
@@ -125,8 +135,24 @@ const Hero = () => {
           zIndex: 2,
         }}
       >
-        <h1 style={{marginBottom:'-30px'}} className='text-[3rem] lg:text-[6rem] text-green-100 text-white  z-2 font-bold'>Automate </h1>
+        <SignedOut>      
+            <h1 style={{marginBottom:'-30px'}} className='text-[3rem] lg:text-[6rem] text-green-100 text-white  z-2 font-bold'>Automate </h1>
         <p  className='lg:text-xl lg:mt-1 mt-[30px]  text-lg z-2 '>Evaluation & Recommendations of Tutors</p>
+     </SignedOut>
+   <SignedIn>
+ <div className="flex-col w-full flex">
+        <h1 style={{marginBottom:'-30px'}} className='text-[3rem] lg:text-[6rem] text-green-100 text-white  z-2 font-bold'>Get </h1>
+        <p  className='lg:text-xl lg:mt-1 mt-[30px]  text-lg z-2 '>Evaluation & Recommendations of Tutors</p>
+
+     <a
+          href="/dashboard"
+          className={`bg-white self-center mt-6 font-extrabold rounded-lg ${mulish.className} p-2 lg:p-3 text-sm lg:text-lg font-semibold border-2 border-white border-solid flex shadow-lg text-indigo-600`}>
+              Get Started 🚀
+            </a> 
+             </div>
+        </SignedIn>
+
+
         </div> 
   </div>;
 };
