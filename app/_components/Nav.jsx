@@ -1,6 +1,12 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import {
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton
+  } from '@clerk/nextjs'
+  
 const Nav = ({ josefin, mulish }) => {
   return (
     <div className="flex w-full justify-between bg-transparent">
@@ -22,20 +28,26 @@ const Nav = ({ josefin, mulish }) => {
           <i className="fas fa-bars"></i> 
         </button>
       </div>
-
+      
+         
+       
       <div className="hidden lg:flex items-center space-x-2 self-center p-3 lg:p-6">
-        <a
+     <SignedOut>   <a
           href="#"
           className={`bg-white rounded-lg ${mulish.className} p-2 lg:p-3 text-sm lg:text-lg font-semibold text-indigo-600`}
         >
-          Login
-        </a>
+        <SignInButton />
+      
+        </a></SignedOut> 
+        
+        <SignedIn>
+            
+        
         <a
           href="#"
           className={`bg-transparent rounded-lg ${mulish.className} p-2 lg:p-3 text-sm lg:text-lg font-semibold border-2 border-white border-solid flex shadow-lg text-white`}
-        >
-          <span>Sign Up</span>
-        </a>
+        ><UserButton />
+        </a>  </SignedIn>
       </div>
     </div>
   );
