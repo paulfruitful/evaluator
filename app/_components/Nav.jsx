@@ -3,8 +3,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import {
     SignInButton,
     SignedIn,
+    SignUp,
     SignedOut,
-    UserButton
+    UserButton,
+    SignUpButton
   } from '@clerk/nextjs'
   
 const Nav = ({ josefin, mulish }) => {
@@ -32,22 +34,24 @@ const Nav = ({ josefin, mulish }) => {
          
        
       <div className="hidden lg:flex items-center space-x-2 self-center p-3 lg:p-6">
-     <SignedOut>   <a
+     <SignedOut>  
+       <a
           href="#"
           className={`bg-white rounded-lg ${mulish.className} p-2 lg:p-3 text-sm lg:text-lg font-semibold text-indigo-600`}
         >
         <SignInButton />
-      
-        </a></SignedOut> 
+ 
+      </a>
+      <a
+          href="#"
+          className={`bg-transparent rounded-lg ${mulish.className} p-2 lg:p-3 text-sm lg:text-lg font-semibold border-2 border-white border-solid flex shadow-lg text-white`}>
+            <SignUpButton/>
+            </a>  
+      </SignedOut> 
         
         <SignedIn>
-            
-        
-        <a
-          href="#"
-          className={`bg-transparent rounded-lg ${mulish.className} p-2 lg:p-3 text-sm lg:text-lg font-semibold border-2 border-white border-solid flex shadow-lg text-white`}
-        ><UserButton />
-        </a>  </SignedIn>
+            <UserButton />
+       </SignedIn>
       </div>
     </div>
   );
